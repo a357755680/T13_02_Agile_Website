@@ -1,4 +1,6 @@
-
+﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -25,17 +27,17 @@
                     Welcome
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="../backend/login.php" method="POST">
                         <div class="input-group form-group">
                             <label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                            <input type="email" id="inputEmail" name = "inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         </div>
                         <div class="input-group form-group">
                             <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <input type="password" id="inputPassword" name = "inputPassword" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
+                            <input type="checkbox" id="remember" name="remember">Remember Me
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Login" class="btn float-right login_btn">
@@ -55,4 +57,3 @@
     </div>
 </body>
 </html>
-
