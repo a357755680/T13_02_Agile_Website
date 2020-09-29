@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../css/Register.css">
+
+</head>
+<body>
+    <span id="user" style="display:none"></span>
+    <span id="admin" style="display:none">false</span>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="btn">
+                </div>
+                <div class="card-header">
+                    Register
+                </div>
+                <div class="card-body">
+                    <form action="#" method="post" class="form" id="form" role="form">
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="email" placeholder="Email as login account" type="email" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="username" placeholder="Displayed name(6-20 characters)" type="username" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="password" placeholder="Enter password(6-20 characters)" type="password" />
+                        </div>
+
+                        <div class="row">
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="male" value="1" />
+                                Male
+                            </label>
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="female" value="0" />
+                                Female
+                            </label>
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="other" value="-1" />
+                                Other
+                            </label>
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="number" placeholder="Phone Number" type="phone" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="homeAddress" placeholder="Home Address" type="address" />
+                        </div>
+
+
+
+                        <br />
+                        <br />
+                        <button id="button-test" class="btn float-right register_btn" onclick="submitForm()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

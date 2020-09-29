@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html, body {
+    background-image: url(../images/Hairdressing.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    height: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+.card-margin{
+    margin-bottom: 18px;
+}
+
+.social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+
+.social_icon span:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.card-header{
+    margin:auto;
+    font-size: 30px;
+    color: white;
+}
+
+
+.register_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.register_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.radio-inline{
+    color: white;
+}
