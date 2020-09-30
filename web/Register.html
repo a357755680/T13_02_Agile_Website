@@ -19,18 +19,13 @@
                 <div class="btn">
                 </div>
                 <div class="card-header">
-                    Register
+                    Account Registration
                 </div>
                 <div class="card-body">
                     <form action="#" method="post" class="form" id="form" role="form">
+                        <h5>Personal Information</h5>
                         <div class="col-xs-6 card-margin">
-                            <input class="form-control" name="email" placeholder="Email as login account" type="email" />
-                        </div>
-                        <div class="col-xs-6 card-margin">
-                            <input class="form-control" name="username" placeholder="User name(6-20 characters)" type="username" />
-                        </div>
-                        <div class="col-xs-6 card-margin">
-                            <input class="form-control" name="password" placeholder="Enter password(6-20 characters)" type="password" />
+                            <input class="form-control" name="name" placeholder="Name (e.g Joseph Taylos)" type="name"/>
                         </div>
 
                         <div class="row">
@@ -47,18 +42,43 @@
                                 Other
                             </label>
                         </div>
-                        <div class="col-xs-6 card-margin">
-                            <input class="form-control" name="number" placeholder="Phone Number" type="phone" />
-                        </div>
+
                         <div class="col-xs-6 card-margin">
                             <input class="form-control" name="homeAddress" placeholder="Home Address" type="address" />
                         </div>
-
-
-
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="number" placeholder="Contact Phone Number" type="phone" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="email" placeholder="Email Address as username" type="email" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="password" placeholder="Enter password (6-20 characters)" type="password" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="password_conform" placeholder="Re-enter password to confirm" type="password_conform" />
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <textarea class="form-control" rows="5" id="extraInfo" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)" ></textarea>
+                        </div>
                         <br />
+                        
+                        <h5>Biller Information</h5>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="name_invoice" placeholder="Name on invoice" type="name_invoice"/>
+                        </div>
+                        <div class="col-xs-6 card-margin">
+                            <input class="form-control" name="biller_email" placeholder="Biller email address" type="email"/>
+                        </div>
                         <br />
-                        <button id="button-test" class="btn float-right register_btn" onclick="submitForm()">Submit</button>
+                        
+                        <div class="row">
+                            <div class="d-flex p-3 justify-content-start">
+                                <div class="p-2">Already have an account?</div>
+                                <div class="p-2"><a href="Login.html">Login now</a></div>
+                            </div>
+                            <button id="button-test" class="btn float-right register_btn" onclick="submitForm()">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
