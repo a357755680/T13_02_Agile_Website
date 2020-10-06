@@ -1,0 +1,157 @@
+
+html, body {
+    background-image: url(../images/hairdressing2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Numans', sans-serif;
+    overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo{
+  font-family: 'Alegreya SC';
+  font-size: 20px;
+  color: black;
+
+}
+.card {
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.divide-sidebar{
+  height: 200px;
+  padding-top: 50px;
+  padding-left: 100px;
+}
+.btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+    .btn:hover {
+        color: black;
+        background-color: white;
+    }
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  height: 57px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.list-group-item{
+  text-align: center;
+}
+
+.form-account{
+  margin-left: 250px;
+  margin-top: 50px;
+}
+.account-setting{
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.setting-above{
+  font-size: 32px;
+}
+.seeting-below{
+  font-size: 18px;
+}
+
+
+
+
+.select_doctor_type{
+  margin-right: 50px;
+}
+
+.table_content_style{
+  margin:0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 1100px;
+  border:1px solid #a5b6c8;
+  border-radius: 4px;
+}
+
+.all_doctor{
+  margin:0 auto;
+  width: 1200px;
+  border:2px solid #a5b6c8;
+  border-radius: 5px;
+}
+
+
+.detail{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight:bold;
+  padding-right: 20px;
+
+}
+
+.detail_item_1{
+  margin-left: 140px;
+  font-weight:normal;
+}
+
+.detail_item_2{
+  margin-left: 110px;
+  font-weight:normal;
+}
+
+.detail_item_3{
+  margin-left: 30px;
+  font-weight:normal;
+}
+.submit_button{
+  margin-left: 700px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
