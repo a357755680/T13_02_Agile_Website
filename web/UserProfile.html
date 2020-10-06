@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>User Profile</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="./css/Userprofile.css" rel="stylesheet">
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic" />
+ 
+</head>
+
+<body>
+    <span id="user" style="display:none"></span>
+    <span id="admin" style="display:none">false</span>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="#">
+            <img src="images/web_brand_icon.png" alt="Logo" style="width:50px;">
+        </a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Welcome, <span id="name1">Visitor</span> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="UserProfile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="HomePage.html">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="d-flex" id="wrapper">
+
+
+
+
+
+    </div>
+
+    <div id="page-content-wrapper" class="tab-content">
+
+
+        <div class="container-fluid">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="card" style="color:white;">
+                        <div class="account-setting">
+                            <div class="row"><span class="setting-above">Account setting</span></div>
+                            <div class="row"><span class="seeting-below">View and Edit your personal information</span></div>
+                        </div>
+                        <hr style="border:none;border-top:2px solid; width: 1200px; color:white;margin-left:15px;" />
+
+                        <div class="form-account">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Change Email ID</label>
+                                <div class="col-md-4">
+                                    <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Change Home Address</label>
+                                <div class="col-md-4">
+                                    <input id="textinput2" name="textinput2" type="text" placeholder="your address " class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="textinput">Change Phone Number</label>
+                                <div class="col-md-4">
+                                    <input id="textinput3" name="textinput3" type="text" placeholder="your number " class="form-control input-md">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="passwordinput">New Password</label>
+                                <div class="col-md-4">
+                                    <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+ 
+
+
+
+
+
+</body>
+
+</html>
