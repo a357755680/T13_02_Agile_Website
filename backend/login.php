@@ -28,9 +28,10 @@
             if ($_POST['inputPassword'] == $row['password']) {
                 $_SESSION["email"] = $_POST["inputEmail"];
                 $_SESSION["password"] = $row['password'];
+                $_SESSION['logged_in'] = TRUE;
                 echo '<script language="javascript" type="text/javascript">
               alert("Login Succeed!!!");
-              window.location = "../web/Register.html" ;
+              window.location = "../web/HomePage.php" ;
             </script>';
                 // echo '<script>alert("Login Succeed")</script>';
                 // header("Location: ../web/Register.html");
