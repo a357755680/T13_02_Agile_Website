@@ -5,22 +5,20 @@ html, body {
     background-image: url(../images/Hairdressing.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
     font-family: 'Numans', sans-serif;
 }
-
 
 .container{
     height: 100%;
     align-content: center;
-    padding: 1%;
 }
 
-
 .card{
-    height: auto;
+    height: 600px;
     margin-top: auto;
     margin-bottom: auto;
-    width: 600px;
+    width: 400px;
     background-color: rgba(0,0,0,0.5) !important;
 }
 
@@ -43,16 +41,6 @@ html, body {
     margin:auto;
     font-size: 30px;
     color: white;
-}
-
-h5, .p-2, label{
-    margin:auto;
-    padding: 5px;
-    color: white; 
-}
-
-.btn {
-    margin-left: 100px;
 }
 
 
