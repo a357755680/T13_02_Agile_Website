@@ -2,10 +2,10 @@
 class MySQLDatabase {
 
     private $link = null;
-    private $dbhost = 'localhost';
+    private $dbhost = '35.244.106.99';
     private $dbuser = 'root';
-    private $dbpassword = '';
-    private $db = 'swam';
+    private $dbpassword = 'spm2020';
+    private $db = 'website';
 
     function connect() {
         $this->link = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpassword);

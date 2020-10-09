@@ -43,62 +43,53 @@
                     Account Registration
                 </div>
                 <div class="card-body">
-                    <form action="../backend/register.php" method="POST" class="form" id="form" role="form" >
+                    <form action="../backend/register.php" method="POST" class="form" id="form" role="form">
                         <h5>Personal Information</h5>
-                        
                         <div class="col-xs-6 card-margin">
-                            <label for="name">Name</label>
-                            <input class="form-control" name="name" placeholder="Enter preferred full name (e.g Joseph Taylos)" type="name" required/>
+                            <input class="form-control" name="name" placeholder="Name (e.g Joseph Taylos)" type="name"/>
                         </div>
-                        
-                        <label for="gender">Gender</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="1" required>
-                            <label class="form-check-label" for="gender">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="0" required>
-                            <label class="form-check-label" for="gender">Female</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="other" value="-1" required> 
-                            <label class="form-check-label" for="gender">Other</label>
+
+                        <div class="row">
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="male" value="1" />
+                                Male
+                            </label>
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="female" value="0" />
+                                Female
+                            </label>
+                            <label class="radio-inline col-xs-4 col-md-4">
+                                <input type="radio" name="gender" id="other" value="-1" />
+                                Other
+                            </label>
                         </div>
 
                         <div class="col-xs-6 card-margin">
-                            <label for="home_address">Home Address</label>
-                            <input class="form-control" name="home_address" placeholder="Enter preferred home address" type="address" required/>
+                            <input class="form-control" name="home_address" placeholder="Home Address" type="address" />
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="phone">Contact Phone Number</label>
-                            <input class="form-control" name="phone" placeholder="Enter preferred phone number" type="phone" required/>
+                            <input class="form-control" name="phone" placeholder="Contact Phone Number" type="phone" />
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="email">Email Address</label>
-                            <input class="form-control" name="email" placeholder="Enter preferred email address" type="email" required/>
+                            <input class="form-control" name="email" placeholder="Email Address as username" type="email" />
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="password">Password</label>
-                            <input class="form-control" name="password" placeholder="Enter password (6-20 characters)" type="password" required/>
+                            <input class="form-control" name="password" placeholder="Enter password (6-20 characters)" type="password" />
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="password_conform">Confirm Password</label>
-                            <input class="form-control" name="password_conform" placeholder="Re-enter password to confirm" type="password_conform" required/>
+                            <input class="form-control" name="password_conform" placeholder="Re-enter password to confirm" type="password_conform" />
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="email">Extra Information</label>
-                            <textarea class="form-control" rows="5" id="extraInfo" name = "extra_info" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)"></textarea>
+                            <textarea class="form-control" rows="5" id="extraInfo" name = "extra_info" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)" ></textarea>
                         </div>
                         <br />
 
                         <h5>Biller Information</h5>
                         <div class="col-xs-6 card-margin">
-                            <label for="name_on_in">Name on invoice</label>
-                            <input class="form-control" name="name_on_in" placeholder="Enter the name on invoice" type="name_invoice"/>
+                            <input class="form-control" name="name_on_in" placeholder="Name on invoice" type="name_invoice"/>
                         </div>
                         <div class="col-xs-6 card-margin">
-                            <label for="bill_address">Biller Email Address</label>
-                            <input class="form-control" name="bill_address" placeholder="Enter biller email address" type="email"/>
+                            <input class="form-control" name="bill_address" placeholder="Biller email address" type="email"/>
                         </div>
                         <br />
 

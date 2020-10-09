@@ -1,4 +1,6 @@
-﻿
+﻿<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html class="noIE" lang="en-US">
 
