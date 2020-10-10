@@ -29,7 +29,7 @@
      </script>
 
 </head>
-<body>
+<body onload="func_query()">
     <span id="user" style="display:none"></span>
     <span id="admin" style="display:none">false</span>
 
@@ -297,7 +297,7 @@
 
                         <div class="update_service">
                             <h4>Service Creation Interface (Only Visibile for admin):</h4>
-                            <form>
+                            <form id="server_service" action="../backend/query_service.php" method="POST" target="nm_iframe">
                                 <div class="form-group">
                                     <label for="sel1">Select hairdresser:</label>
                                     <select class="form-control" id="sel1" name="sellist1">
@@ -305,26 +305,47 @@
                                     </select>
                                     <br>
                                     <label for="sel2">Select service type:</label>
-                                    <select class="form-control" id="sel2" name="sellist2">
+                                    <select class="form-control" id="sel2" name="sellist2" onchange="func_query()">
                                       <option>Haircut</option>
                                       <option>Hair Wash & Dry</option>
                                       <option>Hair Colour</option>
                                     </select>
                                     <br>
                                     <label for="charge">Decide charge(AUD):</label>
-                                    <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" id="charge">
+                                    <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" name = "charger" id="charge">
                                     <br>
                                   </div>
-                                  <button type="submit" class="btn btn-primary float-right">Add Service</button>
+                                  <button type="submit" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
                             </form>
+                            <script type="text/javascript">
+                                function func_query(){
+                                    var sel2=$("#sel2").val();
+                                    $.post("../backend/query_service.php",
+                                    {
+                                        sellist2:sel2
+                                    },
+                                    function(data){
+                                        func_change(data);
+                                    });
+                                }
+                                function func_change(para){
+                                    var element = document.getElementById("charge");
+                                    element.value = para;
+                                }
+                                function func_update(){
+                                    var element = document.getElementById("server_service");
+                                    element.action = "../backend/update_service.php"
+                                    element.submit();
+                                }
+                            </script>
+                            <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                             
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    
 </body>
 </html>
