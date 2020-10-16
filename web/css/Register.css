@@ -3,10 +3,9 @@
 
 html, body {
     background-image: url(../images/Hairdressing.jpg);
+    font-family: 'Numans', sans-serif;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    font-family: 'Numans', sans-serif;
 }
 
 .container{
@@ -15,10 +14,11 @@ html, body {
 }
 
 .card{
-    height: 600px;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 400px;
+    height: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 600px;
+    color: white;
     background-color: rgba(0,0,0,0.5) !important;
 }
 
@@ -47,7 +47,8 @@ html, body {
 .register_btn{
     color: black;
     background-color: #FFC312;
-    width: 100px;
+    width: 150px;
+    margin-left: 50px;
 }
 
 .register_btn:hover{

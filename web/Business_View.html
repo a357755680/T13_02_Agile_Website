@@ -23,8 +23,62 @@
 
             var day = days[ today.getDay() ];
 
+            var two_day = days[ (today.getDay() + 1) % 7 ];
+            var two = new Date(today.getTime() + (24 * 60 * 60 * 1000));
+            var two_dd = String(two.getDate()).padStart(2, '0');
+            var two_mm = String(two.getMonth() + 1).padStart(2, '0');
+            two_day_date = two_day + ', ' + two_mm + '/' + two_dd 
+            document.getElementById('date_option_2').innerHTML = two_day_date; 
+
+            var three_day = days[ (today.getDay() + 2) % 7 ];
+            var three = new Date(two.getTime() + (24 * 60 * 60 * 1000));
+            var three_dd = String(three.getDate()).padStart(2, '0');
+            var three_mm = String(three.getMonth() + 1).padStart(2, '0');
+            three_day_date = three_day + ', ' + three_mm + '/' + three_dd 
+            document.getElementById('date_option_3').innerHTML = three_day_date; 
+
+            var four_day = days[ (today.getDay() + 3) % 7 ];
+            var four = new Date(three.getTime() + (24 * 60 * 60 * 1000));
+            var four_dd = String(four.getDate()).padStart(2, '0');
+            var four_mm = String(four.getMonth() + 1).padStart(2, '0');
+            four_day_date = four_day + ', ' + four_mm + '/' + four_dd 
+            document.getElementById('date_option_4').innerHTML = four_day_date; 
+
+            var five_day = days[ (today.getDay() + 4) % 7 ];
+            var five = new Date(four.getTime() + (24 * 60 * 60 * 1000));
+            var five_dd = String(five.getDate()).padStart(2, '0');
+            var five_mm = String(five.getMonth() + 1).padStart(2, '0');
+            five_day_date = five_day + ', ' + five_mm + '/' + five_dd 
+            document.getElementById('date_option_5').innerHTML = five_day_date; 
+
+            var six_day = days[ (today.getDay() + 5) % 7 ];
+            var six = new Date(five.getTime() + (24 * 60 * 60 * 1000));
+            var six_dd = String(six.getDate()).padStart(2, '0');
+            var six_mm = String(six.getMonth() + 1).padStart(2, '0');
+            six_day_date = six_day + ', ' + six_mm + '/' + six_dd 
+            document.getElementById('date_option_6').innerHTML = six_day_date; 
+
+            var seven_day = days[ (today.getDay() + 6) % 7 ];
+            var seven = new Date(six.getTime() + (24 * 60 * 60 * 1000));
+            var seven_dd = String(seven.getDate()).padStart(2, '0');
+            var seven_mm = String(seven.getMonth() + 1).padStart(2, '0');
+            seven_day_date = seven_day + ', ' + seven_mm + '/' + seven_dd 
+            document.getElementById('date_option_7').innerHTML = seven_day_date; 
+
+
+            var eight_day = days[ (today.getDay() + 7) % 7 ];
+            var eight = new Date(seven.getTime() + (24 * 60 * 60 * 1000));
+            var eight_dd = String(eight.getDate()).padStart(2, '0');
+            var eight_mm = String(eight.getMonth() + 1).padStart(2, '0');
+            eight_day_date = eight_day + ', ' + eight_mm + '/' + eight_dd 
+            document.getElementById('date_option_8').innerHTML = eight_day_date; 
+
+
             today = 'Today is ' + day + ', ' +mm + '/' + dd + '/' + yyyy;
+            today_date = day + ', ' +mm + '/' + dd 
             document.getElementById('date').innerHTML = today;   
+            document.getElementById('date_option').innerHTML = today_date;
+
         })
      </script>
 
@@ -88,66 +142,19 @@
                             <h4>Haircut Timetable:</h4>
                             <p>View the available service slots and select your preferred ones:</p>
                             <p id='date'></p>
-                            <table class="table">
+                            <table class="table" id="t1">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Time</th>
                                     <th scope="col">Charge(AUD)</th>
                                     <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Beth</td>
-                                    <td>9:00 - 10:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Beth</td>
-                                    <td>10:00 - 11:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Beth</td>
-                                    <td>11:00 - 12:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Beth</td>
-                                    <td>1:00 - 2:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Booked</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Beth</td>
-                                    <td>2:00 - 3:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Booked</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Beth</td>
-                                    <td>3:00 - 4:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Beth</td>
-                                    <td>4:00 - 5:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
+                               
                                 </tbody>
                             </table>
                         </div>
@@ -159,66 +166,19 @@
                             <h4>Hair Wash & Dry Timetable:</h4>
                             <p>View the available service slots and select your preferred ones:</p>
                             <p id='date'></p>
-                            <table class="table">
+                            <table class="table" id="t2">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
                                     <th scope="col">Time</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Charge(AUD)</th>
                                     <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Beth</td>
-                                    <td>9:00 - 10:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Beth</td>
-                                    <td>10:00 - 11:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Beth</td>
-                                    <td>11:00 - 12:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Beth</td>
-                                    <td>1:00 - 2:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Beth</td>
-                                    <td>2:00 - 3:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Beth</td>
-                                    <td>3:00 - 4:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Beth</td>
-                                    <td>4:00 - 5:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
+                                
                                 </tbody>
                             </table>
                         </div>
@@ -231,75 +191,28 @@
                             <h4>Hair Colour Timetable:</h4>
                             <p>View the available service slots and select your preferred ones:</p>
                             <p id='date'></p>
-                            <table class="table">
+                            <table class="table" id="t3">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
                                     <th scope="col">Time</th>
+                                    <th scope="col">Date</th>
                                     <th scope="col">Charge(AUD)</th>
                                     <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Beth</td>
-                                    <td>9:00 - 10:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Beth</td>
-                                    <td>10:00 - 11:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Beth</td>
-                                    <td>11:00 - 12:00 AM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Beth</td>
-                                    <td>1:00 - 2:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Beth</td>
-                                    <td>2:00 - 3:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Beth</td>
-                                    <td>3:00 - 4:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Beth</td>
-                                    <td>4:00 - 5:00 PM</td>
-                                    <td>undefined</td>
-                                    <td>Yes</td>
-                                </tr>
+                                
                                 </tbody>
                             </table>
                         </div>
 
                         <div class="update_service">
-                            <h4>Service Creation Interface (Only Visibile for admin):</h4>
+                            <h4>Service Creation Interface:</h4>
                             <form id="server_service" action="../backend/query_service.php" method="POST" target="nm_iframe">
                                 <div class="form-group">
-                                    <label for="sel1">Select hairdresser:</label>
+                                    <label for="sel1">Select responding hairdresser:</label>
                                     <select class="form-control" id="sel1" name="sellist1">
                                       <option>Beth</option>
                                     </select>
@@ -311,11 +224,34 @@
                                       <option>Hair Colour</option>
                                     </select>
                                     <br>
+                                    <label for="sel3">Select service date:</label>
+                                    <select class="form-control" id="sel3" name="sellist3">
+                                        <option id='date_option'></option>
+                                        <option id='date_option_2'></option>
+                                        <option id='date_option_3'></option>
+                                        <option id='date_option_4'></option>
+                                        <option id='date_option_5'></option>
+                                        <option id='date_option_6'></option>
+                                        <option id='date_option_7'></option>
+                                        <option id='date_option_8'></option>
+                                      </select>
+                                     <br>
+                                    <label for="sel4">Select service time:</label>
+                                    <select class="form-control" id="sel4" name="sellist4">
+                                        <option>9:00 - 10:00 AM</option>
+                                        <option>10:00 - 11:00 AM</option>
+                                        <option>11:00 - 12:00 AM</option>
+                                        <option>1:00 - 2:00 PM</option>
+                                        <option>2:00 - 3:00 PM</option>
+                                        <option>3:00 - 4:00 PM</option>
+                                        <option>4:00 - 5:00 PM</option>
+                                      </select>
+                                     <br>
                                     <label for="charge">Decide charge(AUD):</label>
                                     <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" name = "charger" id="charge">
                                     <br>
                                   </div>
-                                  <button type="submit" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
+                                  <button type="button" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
                             </form>
                             <script type="text/javascript">
                                 function func_query(){
@@ -333,6 +269,37 @@
                                     element.value = para;
                                 }
                                 function func_update(){
+                                    event.preventDefault()
+                                    var sel2=$("#sel2").val();
+                                    var tableRef;
+                                    if (sel2 == 'Haircut') {
+                                        var tableRef = document.getElementById('t1').getElementsByTagName('tbody')[0];
+                                    } else if (sel2 == 'Hair Wash & Dry') {
+                                        var tableRef = document.getElementById('t2').getElementsByTagName('tbody')[0];
+                                    } else {
+                                        var tableRef = document.getElementById('t3').getElementsByTagName('tbody')[0];
+                                    }
+                                    var row = tableRef.insertRow(0);      
+                                    var newCell = row.insertCell(0);
+                                    var newCell2 = row.insertCell(1);
+                                    var newCell3 = row.insertCell(2);
+                                    var newCell4 = row.insertCell(3);
+                                    var newCell5 = row.insertCell(4);
+                                    var newCell6 = row.insertCell(5);
+
+                                    var sel1=$("#sel1").val();
+                                    
+                                    var sel3=$("#sel3").val();
+                                    var sel4=$("#sel4").val();
+                                    var charge = document.getElementById("charge").value
+
+                                    newCell.innerHTML="ID";
+                                    newCell2.innerHTML="" + sel1;
+                                    newCell3.innerHTML="" + sel3;
+                                    newCell4.innerHTML="" + sel4;
+                                    newCell5.innerHTML="" + charge;
+                                    newCell6.innerHTML="Yes";
+                                    
                                     var element = document.getElementById("server_service");
                                     element.action = "../backend/update_service.php"
                                     element.submit();
