@@ -23,6 +23,13 @@
 
             var day = days[ today.getDay() ];
 
+            today_text = 'Today is ' + day + ', ' +mm + '/' + dd + '/' + yyyy;
+            today_date = day + ', ' +mm + '/' + dd 
+            document.getElementById('date1').innerHTML = today_text; 
+            document.getElementById('date2').innerHTML = today_text;
+            document.getElementById('date3').innerHTML = today_text;    
+            document.getElementById('date_option').innerHTML = today_date;
+
             var two_day = days[ (today.getDay() + 1) % 7 ];
             var two = new Date(today.getTime() + (24 * 60 * 60 * 1000));
             var two_dd = String(two.getDate()).padStart(2, '0');
@@ -72,12 +79,6 @@
             var eight_mm = String(eight.getMonth() + 1).padStart(2, '0');
             eight_day_date = eight_day + ', ' + eight_mm + '/' + eight_dd 
             document.getElementById('date_option_8').innerHTML = eight_day_date; 
-
-
-            today = 'Today is ' + day + ', ' +mm + '/' + dd + '/' + yyyy;
-            today_date = day + ', ' +mm + '/' + dd 
-            document.getElementById('date').innerHTML = today;   
-            document.getElementById('date_option').innerHTML = today_date;
 
         })
      </script>
@@ -139,17 +140,15 @@
                             <br>
                             <img src="images/haircut.jpg" class="rounded mx-auto d-block" alt="haircut">
                             <br>
-                            <h4>Haircut Timetable:</h4>
-                            <p>View the added service items and add your new service:</p>
-                            <p id='date'></p>
+                            <h4>Haircut Service Table:</h4>
+                            <p>View the available service items and add your new service:</p>
+                            <p id='date1'></p>
                             <table class="table" id="t1">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Charge(AUD)</th>
+                                    <th scope="col">Charge (AUD)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -162,17 +161,15 @@
                             <br>
                             <img src="images/hairwash.jpg" class="rounded mx-auto d-block" alt="hairwash">
                             <br>
-                            <h4>Hair Wash & Dry Timetable:</h4>
-                            <p>View the available service slots and select your preferred ones:</p>
-                            <p id='date'></p>
+                            <h4>Hair Wash & Dry Service Table:</h4>
+                            <p>View the available service items and add your new service:</p>
+                            <p id='date2'></p>
                             <table class="table" id="t2">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Charge(AUD)</th>
+                                    <th scope="col">Charge (AUD)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -186,17 +183,15 @@
                             <br>
                             <img src="images/hair_colour.jpg" class="rounded mx-auto d-block" alt="hair_colour">
                             <br>
-                            <h4>Hair Colour Timetable:</h4>
-                            <p>View the available service slots and select your preferred ones:</p>
-                            <p id='date'></p>
+                            <h4>Hair Colour Service Table:</h4>
+                            <p>View the available service items and add your new service:</p>
+                            <p id='date3'></p>
                             <table class="table" id="t3">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Charge(AUD)</th>
+                                    <th scope="col">Charge (AUD)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -204,6 +199,8 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        </br>
 
                         <div class="update_service">
                             <h4>Service Creation Interface:</h4>
@@ -221,6 +218,7 @@
                                       <option>Hair Colour</option>
                                     </select>
                                     <br>
+                                    <!--
                                     <label for="sel3">Select service date:</label>
                                     <select class="form-control" id="sel3" name="sellist3">
                                         <option id='date_option'></option>
@@ -244,7 +242,8 @@
                                         <option>4:00 - 5:00 PM</option>
                                       </select>
                                      <br>
-                                    <label for="charge">Decide charge(AUD):</label>
+                                     --> 
+                                    <label for="charge">Decide charge (AUD):</label>
                                     <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" name = "charger" id="charge">
                                     <br>
                                   </div>
@@ -279,20 +278,25 @@
                                     var row = tableRef.insertRow(0);      
                                     var newCell = row.insertCell(0);
                                     var newCell2 = row.insertCell(1);
+                                    /*
                                     var newCell3 = row.insertCell(2);
                                     var newCell4 = row.insertCell(3);
-                                    var newCell5 = row.insertCell(4);
+                                    */
+                                    var newCell5 = row.insertCell(2);
 
                                     var sel1=$("#sel1").val();
-                                    
+                                    /*
                                     var sel3=$("#sel3").val();
                                     var sel4=$("#sel4").val();
+                                    */
                                     var charge = document.getElementById("charge").value
 
                                     newCell.innerHTML="ID";
                                     newCell2.innerHTML="" + sel1;
+                                    /*
                                     newCell3.innerHTML="" + sel3;
                                     newCell4.innerHTML="" + sel4;
+                                    */
                                     newCell5.innerHTML="" + charge;
                                     
                                     var element = document.getElementById("server_service");
