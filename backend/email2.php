@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 require './src/Exception.php';
 require './src/PHPMailer.php';
 require './src/SMTP.php';
-
+ini_set('date.timezone','Asia/Shanghai');
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
     //服务器配置
