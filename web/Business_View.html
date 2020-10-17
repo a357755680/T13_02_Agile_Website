@@ -140,7 +140,7 @@
                             <img src="images/haircut.jpg" class="rounded mx-auto d-block" alt="haircut">
                             <br>
                             <h4>Haircut Timetable:</h4>
-                            <p>View the available service slots and select your preferred ones:</p>
+                            <p>View the added service items and add your new service:</p>
                             <p id='date'></p>
                             <table class="table" id="t1">
                                 <thead>
@@ -150,7 +150,6 @@
                                     <th scope="col">Date</th>
                                     <th scope="col">Time</th>
                                     <th scope="col">Charge(AUD)</th>
-                                    <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -171,10 +170,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
-                                    <th scope="col">Time</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
                                     <th scope="col">Charge(AUD)</th>
-                                    <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -196,10 +194,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Hairdresser</th>
-                                    <th scope="col">Time</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
                                     <th scope="col">Charge(AUD)</th>
-                                    <th scope="col">Availablilty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -251,7 +248,7 @@
                                     <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" name = "charger" id="charge">
                                     <br>
                                   </div>
-                                  <button type="button" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
+                                  <button type="submit" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
                             </form>
                             <script type="text/javascript">
                                 function func_query(){
@@ -285,7 +282,6 @@
                                     var newCell3 = row.insertCell(2);
                                     var newCell4 = row.insertCell(3);
                                     var newCell5 = row.insertCell(4);
-                                    var newCell6 = row.insertCell(5);
 
                                     var sel1=$("#sel1").val();
                                     
@@ -298,7 +294,6 @@
                                     newCell3.innerHTML="" + sel3;
                                     newCell4.innerHTML="" + sel4;
                                     newCell5.innerHTML="" + charge;
-                                    newCell6.innerHTML="Yes";
                                     
                                     var element = document.getElementById("server_service");
                                     element.action = "../backend/update_service.php"
