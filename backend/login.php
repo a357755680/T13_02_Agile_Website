@@ -29,6 +29,12 @@
                 $_SESSION["email"] = $_POST["inputEmail"];
                 $_SESSION["password"] = $row['password'];
                 $_SESSION['logged_in'] = TRUE;
+                $_SESSION['home_address'] = $row['home_address'];
+                $_SESSION['bill_address'] = $row['bill_address'];
+                $_SESSION['phone_number'] = $row['phone_number'];
+                $_SESSION['name_on_in'] = $row['name_on_invoice'];
+
+
                 echo '<script language="javascript" type="text/javascript">
               alert("Login Succeed!!!");
               window.location = "../web/HomePage.php" ;
@@ -43,6 +49,15 @@
         }
         $db->disconnect();
 
+    }
+
+    if (isset($_GET["logout"])) {
+        session_destroy();
+        echo '<script language="javascript" type="text/javascript">
+      alert("Logout Succeed!!!");
+      window.location = "../web/HomePage.php" ;
+    </script>';
+        // header("Location: ../web/HomePage.php");
     }
 
     // if (isset($_GET["logout"])) {

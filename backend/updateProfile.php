@@ -8,19 +8,17 @@
         // Check in DB
         $db = new MySQLDatabase();
         $db->connect();
-        $email = $_POST["email"];
-        $name = $_POST["name"];
+        $email = $_SESSION["email"];
         $password = $_POST["password"];
-        $phone = $_POST["phone"];
-		    $extra_info = $_POST["extra_info"];
+        $phone = $_POST["phone_number"];
 		    $name_on_in = $_POST["name_on_in"];
         $bill_address = $_POST["bill_address"];
 		    $home_address = $_POST["home_address"];
 
-        echo $name;
-        echo $password;
-        echo $phone;
 
+        if ($_POST["password"] === '******'){
+          $password = $_SESSION["password"];
+        }
 
 
 
@@ -29,20 +27,29 @@
 
         /*while($row = mysqli_fetch_array($result)) {
             print "Name: {$row['username']} has ID: {$row['userId']}";
+
+
         }*/
+
         if ($row = mysqli_fetch_array($result)) {
-            echo '<script>alert("Email already exist")</script>';
+            // echo '<script>alert("Email already exist")</script>';
             // if ($_POST['password'] === $row['Password']) {
             //     $_SESSION["email"] = $_POST["email"];
             //     $_SESSION["Username"] = $row['Name'];
             //     header("Location: Signin.php");
             //     echo($_POST["email"]);
-        } else {
-            $query2 = "INSERT INTO user (email, password, name, phone_number, extra_information,name_on_invocie ,bill_address,home_address  ) VALUES ('$email','$password','$name','$phone','$extra_info','$name_on_in','$bill_address','$home_address')";
+            $query2 = "UPDATE user  SET email='$email', password='$password', phone_number='$phone',name_on_invoice='$name_on_in' ,bill_address='$bill_address',home_address='$home_address'   WHERE email ='$email' ";
             if ($db->query($query2) === TRUE) {
+              $_SESSION["email"] = $email;
+              $_SESSION["password"] = $password;
+              $_SESSION['logged_in'] = TRUE;
+              $_SESSION['home_address'] = $home_address;
+              $_SESSION['bill_address'] = $bill_address;
+              $_SESSION['phone_number'] = $phone;
+              $_SESSION['name_on_in'] = $name_on_in;
               echo '<script language="javascript" type="text/javascript">
                   alert("Update succeed!");
-                  window.location = "../web/UserProfile.html";
+                  window.location = "../web/UserProfile.php";
                 </script>';
               // echo '<script>alert("Register succeed"); window.location = Signin.php</script>';
               // header("Location: Signin.php");
@@ -52,6 +59,12 @@
             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
               }
+        } else {
+          echo '<script language="javascript" type="text/javascript">
+              alert("Can not find email");
+              window.location = "../web/UserProfile.php";
+            </script>';
+
 
         }
         $db->disconnect();

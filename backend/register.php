@@ -38,7 +38,7 @@
             //     header("Location: Signin.php");
             //     echo($_POST["email"]);
         } else {
-            $query2 = "INSERT INTO user (email, password, name, phone_number, extra_information,name_on_invocie ,bill_address,home_address  ) VALUES ('$email','$password','$name','$phone','$extra_info','$name_on_in','$bill_address','$home_address')";
+            $query2 = "INSERT INTO user (email, password, name, phone_number, extra_information,name_on_invoice ,bill_address,home_address  ) VALUES ('$email','$password','$name','$phone','$extra_info','$name_on_in','$bill_address','$home_address')";
             if ($db->query($query2) === TRUE) {
               echo '<script language="javascript" type="text/javascript">
                   alert("Register succeed");
