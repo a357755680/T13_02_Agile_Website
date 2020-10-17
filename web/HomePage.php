@@ -1,4 +1,4 @@
-﻿<?php
+<?php
   session_start();
 ?>
 <!DOCTYPE html>
@@ -50,11 +50,17 @@
 
         else{?>
             <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="HomePage.html">Logout</a>
+             <li class="nav-item active">
+                <a class="nav-link" href="#">Welcome, <span id="name1">Visitor</span> <span class="sr-only">(current)</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link active" href="Booking.html">Book now</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="UserProfile.html">UserProfile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="HomePage.html">Logout</a>
             </li>
         </ul>
         <?php } ?>
