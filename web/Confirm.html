@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic" />
- 
+
 </head>
 
 <body>
@@ -62,61 +62,53 @@
                 <fieldset>
                     <div class="card" style="color:white;">
                         <div class="account-setting">
-                            <div class="row"><span class="setting-above">Account setting</span></div>
-                            <div class="row"><span class="seeting-below">View and Edit your personal information</span></div>
+                            <div class="row"><span class="setting-above">Booking details</span></div>
+                            <div class="row"><span class="seeting-below">View and Confirm your booking information</span></div>
                         </div>
                         <hr style="border:none;border-top:2px solid; width: 1200px; color:white;margin-left:15px;" />
 
-                        
+
                         <div class="form-account">
-                            <h5 style="padding-left:15px;">Personal Information</h5>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Change Email ID</label>
+                                <label class="col-md-4 control-label" for="textinput">Hairdresser:</label>
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
+                                    <input id="textinput2" name="textinput2" type="text" value="Beth" class="form-control input-md" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Change Home Address</label>
+                                <label class="col-md-4 control-label" for="textinput">Time: </label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" placeholder="your address " class="form-control input-md">
+                                    <input id="textinput2" name="textinput2" type="text" value="date" class="form-control input-md" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Change Phone Number</label>
+                                <label class="col-md-4 control-label" for="textinput">Service Type: </label>
                                 <div class="col-md-4">
-                                    <input id="textinput3" name="textinput3" type="text" placeholder="your number " class="form-control input-md">
+                                    <input id="textinput2" name="textinput2" type="text" value="type" class="form-control input-md" disabled>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="passwordinput">New Password</label>
+                                <label class="col-md-4 control-label" for="textinput">Home Address:</label>
                                 <div class="col-md-4">
-                                    <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
-
+                                    <input id="textinput2" name="textinput2" type="text" placeholder="your address" class="form-control input-md">
                                 </div>
                             </div>
-
-                            <h5 style="padding-left:15px;">Biller Information</h5>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="name_on_in">Name on invoice</label>
+                                <label class="col-md-4 control-label" for="textinput">Optional Message:</label>
                                 <div class="col-md-4">
-                                    <input id="name_on_in" name="name_on_in" type="name_invoice" placeholder="your name on invoic" class="form-control input-md">
-
+                                    <textarea class="form-control" rows="5" id="extraInfo" name="extra_info" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)"></textarea>
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="name_on_in">Biller email address</label>
+                                <label class="col-md-4 control-label" for="textinput">Price:</label>
                                 <div class="col-md-4">
-                                    <input id="bill_address" name="bill_address" type="email" placeholder="your biller email address" class="form-control input-md">
-
+                                    <input id="textinput2" name="textinput2" type="text" value="$" class="form-control input-md" disabled>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-4">
-                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn">SUBMIT</button>
+                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn">Confirm</button>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +117,7 @@
             </form>
         </div>
     </div>
- 
+
 
 
 
