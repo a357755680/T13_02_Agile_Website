@@ -142,6 +142,23 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim("utf-8");
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+        var email = getCookie("email");
+        $.post("../backend/queryProfile.php", { "email": unescape(email) },
+            function(data){
+                var Welcome = document.getElementById("name1");
+                Welcome.innerHTML = data.name;
+            }, "json");
+        
+    </script>
 </body>
 </html>

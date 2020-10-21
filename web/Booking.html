@@ -145,7 +145,7 @@
                             <h4>Book your time</h4>
                             <p id='date'></p>
 
-                            <p>Select your perferred date: <input type="date" id="datepicker" name="date"></p>
+                            <p>Select your perferred date: <input type="date" id="datepicker" onchange="select_date()" name="date"></p>
 
                             <table class="table" id="t1">
                                 <thead>
@@ -287,13 +287,13 @@
 
         $.post("../backend/query_available.php", { "date":today},
             function(data){
-                var s1 = document.getElementById("s1");
-                var s2 = document.getElementById("s2");
-                var s3 = document.getElementById("s3");
-                var s4 = document.getElementById("s4");
-                var s5 = document.getElementById("s5");
-                var s6 = document.getElementById("s6");
-                var s7 = document.getElementById("s7");
+                var s1 = document.getElementById("btn");
+                var s2 = document.getElementById("btn2");
+                var s3 = document.getElementById("btn3");
+                var s4 = document.getElementById("btn4");
+                var s5 = document.getElementById("btn5");
+                var s6 = document.getElementById("btn6");
+                var s7 = document.getElementById("btn7");
                 s1.disabled = data.slot1;
                 s2.disabled = data.slot2;
                 s3.disabled = data.slot3;
@@ -304,6 +304,26 @@
             }, "json");
         datepicker.value = today;
         datepicker.min = today;
+        function select_date (){
+            var date = datepicker.value;
+            $.post("../backend/query_available.php", { "date":date},
+            function(data){
+                var s1 = document.getElementById("btn");
+                var s2 = document.getElementById("btn2");
+                var s3 = document.getElementById("btn3");
+                var s4 = document.getElementById("btn4");
+                var s5 = document.getElementById("btn5");
+                var s6 = document.getElementById("btn6");
+                var s7 = document.getElementById("btn7");
+                s1.disabled = data.slot1;
+                s2.disabled = data.slot2;
+                s3.disabled = data.slot3;
+                s4.disabled = data.slot4;
+                s5.disabled = data.slot5;
+                s6.disabled = data.slot6;
+                s7.disabled = data.slot7;
+            }, "json");
+        }
     </script>
 
 </body>
