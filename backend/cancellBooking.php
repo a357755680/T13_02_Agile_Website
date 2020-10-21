@@ -37,7 +37,7 @@
             //     $_SESSION["Username"] = $row['Name'];
             //     header("Location: Signin.php");
             //     echo($_POST["email"]);
-            $query2 = "INSERT INTO user_service (service_id, user_email, service_type, service_charge, service_date, service_timeslot) VALUES ('$service_id','$email','$service_type','$service_charge','$service_date','$service_timeslot')";
+            $query2 = "DELETE FROM user_service WHERE service_id = '$service_id'";
             if ($db->query($query2) === TRUE) {
 
               echo '<script language="javascript" type="text/javascript">
