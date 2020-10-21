@@ -18,7 +18,7 @@
     <script type="text/javascript">
       //receive the data
       var per=[
-        {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
+        {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", date:"10/21/2020", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
       ];
 
       window.onload=function () {
@@ -53,6 +53,10 @@
         var userphoneCell=document.createElement('td');
         userphoneCell.innerText = h.userphone;
         row.appendChild(userphoneCell);
+
+        var dateCell=document.createElement('td');
+        dateCell.innerText = h.date;
+        row.appendChild(dateCell);
 
         var timeCell=document.createElement('td');
         timeCell.innerText = h.time;
@@ -123,7 +127,7 @@
                   Appointments List
               </div>
               <div class='card-body'>
-                <h5>These are the available appointments from customers for today:</h5>
+                <h5>These are the available appointments from customers:</h5>
                 </br>
                 <table class="table" id="t1">
                   <thead>
@@ -133,6 +137,7 @@
                         <th scope="col">User Name</th>
                         <th scope="col">User Email</th>
                         <th scope="col">User Phone</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Time</th>
                         <th scope="col">Service Type</th>
                         <th scope="col">Home Address</th>
