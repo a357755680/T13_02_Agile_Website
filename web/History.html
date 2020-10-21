@@ -54,13 +54,21 @@
                 <a class="nav-link active" href="UserProfile.html">UserProfile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="HomePage.html">Logout</a>
+                <a class="nav-link"  onclick="logout()" href="#">Logout</a>
             </li>
         </ul>
 
 
     </nav>
 
+    <script type="text/javascript">
+        function logout(){
+            $.get("../backend/login.php", { logout:"out" });
+            alert("Logout Succeed!!!");
+            window.location.href="HomePage.php";
+        }
+    </script>
+    
     <div class="container-fluid">
         <div class="d-flex justify-content-center h-100">
             <div class="card" style="height:100%">
