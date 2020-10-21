@@ -8,13 +8,10 @@
 
 
         if (isset($_POST["remember"])) {
-            setcookie("email", $_POST["inputEmail"], time() + 60*60*24, "/");
-            setcookie("passowrd", $_POST["inputPassword"], time() + 60*60*24, "/");
-            // $_COOKIE["email"] = $_POST["inputEmail"];
+            setcookie("email", $_POST["email"], time() + 60*60*24, "/");
+            $_COOKIE["email"] = $_POST["inputEmail"];
         } else {
-            setcookie("email", "", time() - 60*60*24, "/");
-            setcookie("passowrd", $_POST["inputPassword"], time() - 60*60*24, "/");
-            // setcookie("inputEmail", null, -1, "/");
+            setcookie("inputEmail", null, -1, "/");
         }
 
         // Check in DB
@@ -31,13 +28,11 @@
             if ($_POST['inputPassword'] == $row['password']) {
                 $_SESSION["email"] = $_POST["inputEmail"];
                 $_SESSION["password"] = $row['password'];
-                $_SESSION["name"] = $row['name'];
                 $_SESSION['logged_in'] = TRUE;
                 $_SESSION['home_address'] = $row['home_address'];
                 $_SESSION['bill_address'] = $row['bill_address'];
                 $_SESSION['phone_number'] = $row['phone_number'];
                 $_SESSION['name_on_in'] = $row['name_on_invoice'];
-                $_SESSION['extra_information'] = $row['extra_information'];
 
 
                 echo '<script language="javascript" type="text/javascript">
@@ -58,11 +53,10 @@
 
     if (isset($_GET["logout"])) {
         session_destroy();
-        
-    //     echo '<script language="javascript" type="text/javascript">
-    //   alert("Logout Succeed!!!");
-    //   window.location = "../web/HomePage.php" ;
-    // </script>';
+        echo '<script language="javascript" type="text/javascript">
+      alert("Logout Succeed!!!");
+      window.location = "../web/HomePage.php" ;
+    </script>';
         // header("Location: ../web/HomePage.php");
     }
 

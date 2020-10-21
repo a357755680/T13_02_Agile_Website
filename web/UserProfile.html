@@ -20,15 +20,11 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic" />
  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <span id="user" style="display:none"></span>
     <span id="admin" style="display:none">false</span>
-
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
         <a class="navbar-brand" href="#">
@@ -49,30 +45,23 @@
                 <a class="nav-link active" href="UserProfile.html">UserProfile</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link"  onclick="logout()" href="#">Logout</a>
+                <a class="nav-link" href="HomePage.html">Logout</a>
             </li>
         </ul>
     </nav>
     <div class="d-flex" id="wrapper">
 
-    <script type="text/javascript">
-        function logout(){
-            $.get("../backend/login.php", { logout:"out" });
-            alert("Logout Succeed!!!");
-            window.location.href="HomePage.php";
-        }
-    </script>
 
 
 
 
     </div>
-    
+
     <div id="page-content-wrapper" class="tab-content">
 
 
         <div class="container-fluid">
-            <form class="form-horizontal" action="../backend/updateProfile.php" method="POST">
+            <form class="form-horizontal">
                 <fieldset>
                     <div class="card" style="color:white;">
                         <div class="account-setting">
@@ -85,28 +74,28 @@
                         <div class="form-account">
                             <h5 style="padding-left:15px;">Personal Information</h5>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Name</label>
+                                <label class="col-md-4 control-label" for="textinput">Change Email ID</label>
                                 <div class="col-md-4">
-                                    <input id="name" name="name" type="text" placeholder="new name " class="form-control input-md">
+                                    <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Home Address</label>
+                                <label class="col-md-4 control-label" for="textinput">Change Home Address</label>
                                 <div class="col-md-4">
-                                    <input id="address" name="address" type="text" placeholder="new address " class="form-control input-md">
+                                    <input id="textinput2" name="textinput2" type="text" placeholder="your address " class="form-control input-md">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Phone Number</label>
+                                <label class="col-md-4 control-label" for="textinput">Change Phone Number</label>
                                 <div class="col-md-4">
-                                    <input id="phonenumber" name="phonenumber" type="phone" placeholder="new phone number " class="form-control input-md">
+                                    <input id="textinput3" name="textinput3" type="text" placeholder="your number " class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="passwordinput">Extra Information</label>
+                                <label class="col-md-4 control-label" for="passwordinput">New Password</label>
                                 <div class="col-md-4">
-                                    <input id="information" name="information" type="text" placeholder="new extra information" class="form-control input-md">
+                                    <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -115,7 +104,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name_on_in">Name on invoice</label>
                                 <div class="col-md-4">
-                                    <input id="name_on_in" name="name_on_in" type="name_invoice" placeholder="new name on invoice" class="form-control input-md">
+                                    <input id="name_on_in" name="name_on_in" type="name_invoice" placeholder="your name on invoic" class="form-control input-md">
 
                                 </div>
                             </div>
@@ -123,14 +112,14 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name_on_in">Biller email address</label>
                                 <div class="col-md-4">
-                                    <input id="bill_address" name="bill_address" type="email" placeholder="new biller email address" class="form-control input-md">
+                                    <input id="bill_address" name="bill_address" type="email" placeholder="your biller email address" class="form-control input-md">
 
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-4">
-                                    <button id="singlebutton" type="submit" name="singlebutton" class="btn float-right btn">UPDATE</button>
+                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn">SUBMIT</button>
                                 </div>
                             </div>
                         </div>
@@ -139,35 +128,7 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript">
-        function getCookie(cname){
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0; i<ca.length; i++) {
-                var c = ca[i].trim("utf-8");
-                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
-            }
-            return "";
-        }
-        var email = getCookie("email");
-        $.post("../backend/queryProfile.php", { "email": unescape(email) },
-            function(data){
-                var name = document.getElementById("name");
-                var address = document.getElementById("address");
-                var phonenumber = document.getElementById("phonenumber");
-                var information = document.getElementById("information");
-                var name_on_in = document.getElementById("name_on_in");
-                var bill_address = document.getElementById("bill_address");
-                var Welcome = document.getElementById("name1");
-                Welcome.innerHTML = data.name;
-                name.value = data.name;
-                address.value = data.adress;
-                phonenumber.value = data.phone;
-                information.value = data.information;
-                name_on_in.value = data.name_on_in;
-                bill_address.value = data.bill_address;
-            }, "json");
-    </script>
+ 
 
 
 
