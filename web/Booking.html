@@ -77,7 +77,8 @@
         });
 
         function jump1() {
-            url = "Confirm.html?time=" + time + "&type=" + type;
+            var datepicker = document.getElementById("datepicker");
+            url = "Confirm.html?time=" + time + "&type=" + type + "&date=" + datepicker.value;
             window.location.href = url;
         }
     </script>

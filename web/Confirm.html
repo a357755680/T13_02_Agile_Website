@@ -27,6 +27,7 @@
     <script type="text/javascript">
         var time = UrlParm.parm("time");
         var type = UrlParm.parm("type");
+        var date = UrlParm.parm("date");
     </script>
 </head>
 
@@ -96,7 +97,7 @@
                                 <label class="col-md-4 control-label" for="textinput">Time: </label>
                                 <div class="col-md-4">
                                     <script>
-                                        document.write(time);
+                                        document.write(date + " " +time);
                                     </script>
                                 </div>
                             </div>
