@@ -43,6 +43,50 @@
             });
         });
     </script> -->
+    <script>
+        $(function () {
+            type = $("#type").text();
+            $("#btn").on("click", function () {
+                time = $("#time").text();
+                jump1();
+            });
+            $("#btn2").on("click", function () {
+                time = $("#time2").text();
+                jump1();
+            });
+            $("#btn3").on("click", function () {
+                time = $("#time3").text();
+                jump1();
+            });
+            $("#btn4").on("click", function () {
+                time = $("#time4").text();
+                jump1();
+            });
+            $("#btn5").on("click", function () {
+                time = $("#time5").text();
+                jump1();
+            });
+            $("#btn6").on("click", function () {
+                time = $("#time6").text();
+                jump1();
+            });
+            $("#btn7").on("click", function () {
+                time = $("#time7").text();
+                jump1();
+            });
+        });
+
+        function jump1() {
+            url = "Confirm.html?time=" + time + "&type=" + type;
+            window.location.href = url;
+        }
+    </script>
+    <script>
+        function show_sub(v) {
+            type = v;
+        }
+
+    </script>
 </head>
 <body onload="func_query()">
     <span id="user" style="display:none"></span>
@@ -117,93 +161,100 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Beth</td>
-                                        <td>9:00 - 10:00 AM</td>
+                                        <td id="time">9:00 - 10:00 AM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s1"></a></td>
+                                        <td> <button id="btn">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Beth</td>
-                                        <td>10:00 - 11:00 AM</td>
+                                        <td id="time2">10:00 - 11:00 AM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s2" ></a></td>
+                                        <td> <button id="btn2">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Beth</td>
-                                        <td>11:00 - 12:00 AM</td>
+                                        <td id="time3">11:00 - 12:00 AM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s3"></a></td>
+                                        <td> <button id="btn3">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
                                         <td>Beth</td>
-                                        <td>1:00 - 2:00 PM</td>
+                                        <td id="time4">1:00 - 2:00 PM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s4"></a></td>
+                                        <td> <button id="btn4">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
                                         <td>Beth</td>
-                                        <td>2:00 - 3:00 PM</td>
+                                        <td id="time5">2:00 - 3:00 PM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s5"></a></td>
+                                        <td> <button id="btn5">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
                                         <td>Beth</td>
-                                        <td>3:00 - 4:00 PM</td>
+                                        <td id="time6">3:00 - 4:00 PM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s6"></a></td>
+                                        <td> <button id="btn6">Book</button></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">7</th>
                                         <td>Beth</td>
-                                        <td>4:00 - 5:00 PM</td>
+                                        <td id="time7">4:00 - 5:00 PM</td>
                                         <td>
-                                            <select class="form-control" id="sel2" name="sellist2" onchange="func_query()" style="width:130px;">
+                                            <select class="form-control" id="sel2" name="sellist2" onchange="show_sub(this.options[this.options.selectedIndex].text)" style="width:185px;">
+                                                <option>Please Choose</option>
                                                 <option>Haircut</option>
                                                 <option>Hair Wash & Dry</option>
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s7"></a></td>
+                                        <td> <button id="btn7">Book</button></td>
                                     </tr>
                                 </tbody>
                             </table>
