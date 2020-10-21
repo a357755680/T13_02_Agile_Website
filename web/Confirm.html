@@ -28,6 +28,9 @@
         var time = UrlParm.parm("time");
         var type = UrlParm.parm("type");
         var date = UrlParm.parm("date");
+
+        document.getElementById("price").value = "sadadad";
+
     </script>
 </head>
 
@@ -61,11 +64,14 @@
     <div class="d-flex" id="wrapper">
 
     <script type="text/javascript">
+
+
+
         function logout(){
             $.get("../backend/login.php", { logout:"out" });
             alert("Logout Succeed!!!");
             window.location.href="HomePage.php";
-        }
+        };
     </script>
 
 
@@ -76,7 +82,7 @@
 
 
         <div class="container-fluid">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="../backend/updateAppointment.php" method="POST">
                 <fieldset>
                     <div class="card" style="color:white;">
                         <div class="account-setting">
@@ -94,43 +100,60 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Time: </label>
+
                                 <div class="col-md-4">
-                                    <script>
-                                        document.write(date + " " +time);
-                                    </script>
+                                  <label class="col-md-4 control-label" for="textinput">Date: </label>
+                                  <input id = "service_date" name = "service_date" type="text"  value = "" class="form-control input-md" readonly>
+                                  <script type="text/javascript">
+                                    document.getElementById("service_date").value = date;
+                                  </script>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-4">
+                                  <label class="col-md-4 control-label" for="textinput">Time: </label>
+                                  <input id = "service_time" name = "service_time" type="text" value = "" class="form-control input-md" readonly>
+                                  <script type="text/javascript">
+                                    document.getElementById("service_time").value = time;
+                                  </script>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Service Type: </label>
                                 <div class="col-md-4">
-                                    <script>
-                                        document.write(type);
-                                    </script>
+                                  <input id = "service_type" name = "service_type" type="text" value = ""  class="form-control input-md" readonly>
+                                  <script type="text/javascript">
+                                    document.getElementById("service_type").value = type;
+                                  </script>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Home Address:</label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" placeholder="your address" class="form-control input-md">
+                                    <input id="home_address" name="home_address" type="text" placeholder="your address" class="form-control input-md">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Optional Message:</label>
                                 <div class="col-md-4">
-                                    <textarea class="form-control" rows="5" id="extraInfo" name="extra_info" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)"></textarea>
+                                    <textarea class="form-control" rows="5" id="message" name="message" placeholder="Enter extra information (e.g. broken leg, fragile, single, have pet)"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Price:</label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" value="$" class="form-control input-md" disabled>
+
+                                    <input id="price" type="text" class="form-control input-md" disabled>
+                                    <script type="text/javascript">
+                                      document.getElementById("price").value = "$";
+                                    </script>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-4">
-                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn">Confirm</button>
+                                    <button id="singlebutton" name="singlebutton" class="btn float-right btn" >Confirm</button>
                                 </div>
                             </div>
                         </div>
@@ -146,5 +169,6 @@
 
 
 </body>
+
 
 </html>
