@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>User Profile</title>
+    <title>Confirm</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,6 +23,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/getUrlParam.js"></script>
+    <script type="text/javascript">
+        var time = UrlParm.parm("time");
+        var type = UrlParm.parm("type");
+    </script>
 </head>
 
 <body>
@@ -84,19 +89,23 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Hairdresser:</label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" value="Beth" class="form-control input-md" disabled>
+                                    Beth
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Time: </label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" value="date" class="form-control input-md" disabled>
+                                    <script>
+                                        document.write(time);
+                                    </script>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Service Type: </label>
                                 <div class="col-md-4">
-                                    <input id="textinput2" name="textinput2" type="text" value="type" class="form-control input-md" disabled>
+                                    <script>
+                                        document.write(type);
+                                    </script>
                                 </div>
                             </div>
                             <div class="form-group">
