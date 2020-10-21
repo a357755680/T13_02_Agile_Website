@@ -14,8 +14,11 @@
 
     <script type="text/javascript">
 
+        $.ajaxSetup({   
+            async : false  
+        }); 
         var per=[
-            {id:'1', hairdresser:'Beth', service_type:'Haircut', perhour_charge:'$60'}
+            {id:'1', hairdresser:'Beth', service_type:'Haircut', perhour_charge:'$70'}
         ];
 
         var per2 = [
@@ -25,7 +28,27 @@
         var per3 = [
             {id:'1', hairdresser:'Beth', service_type:'Hair Colour', perhour_charge:'$60'}
         ];
-
+        $.post("../backend/query_service.php",
+            {
+                sellist2:'Haircut'
+            },
+            function(data){
+                per[0].perhour_charge = "$"+data;
+            });
+        $.post("../backend/query_service.php",
+            {
+                sellist2:'Hair Wash & Dry'
+            },
+            function(data){
+                per2[0].perhour_charge = "$"+data;
+            });
+        $.post("../backend/query_service.php",
+            {
+                sellist2:'Hair Colour'
+            },
+            function(data){
+                per3[0].perhour_charge = "$"+data;
+            });
 
         function getDataRow(h) {
             var row=document.createElement('tr');
@@ -290,7 +313,7 @@
                                     <input type="number" min="0" step="1" oninput="validity.valid||(value='');" class="form-control" name = "charger" id="charge">
                                     <br>
                                   </div>
-                                  <button type="submit" class="btn btn-primary float-right" onclick="func_update()">Add Service</button>
+                                  <button type="submit" class="btn btn-primary float-right" onclick="func_update()">Add/Updata Service</button>
                             </form>
                             <script type="text/javascript">
                                 function func_query(){
@@ -308,43 +331,45 @@
                                     element.value = para;
                                 }
                                 function func_update(){
-                                    event.preventDefault()
-                                    var sel2=$("#sel2").val();
-                                    var tableRef;
-                                    if (sel2 == 'Haircut') {
-                                        var tableRef = document.getElementById('t1').getElementsByTagName('tbody')[0];
-                                    } else if (sel2 == 'Hair Wash & Dry') {
-                                        var tableRef = document.getElementById('t2').getElementsByTagName('tbody')[0];
-                                    } else {
-                                        var tableRef = document.getElementById('t3').getElementsByTagName('tbody')[0];
-                                    }
-                                    var row = tableRef.insertRow(0);      
-                                    var newCell = row.insertCell(0);
-                                    var newCell2 = row.insertCell(1);
-                                    /*
-                                    var newCell3 = row.insertCell(2);
-                                    var newCell4 = row.insertCell(3);
-                                    */
-                                    var newCell5 = row.insertCell(2);
+                                    // event.preventDefault()
+                                    // var sel2=$("#sel2").val();
+                                    // var tableRef;
+                                    // if (sel2 == 'Haircut') {
+                                    //     var tableRef = document.getElementById('t1').getElementsByTagName('tbody')[0];
+                                    // } else if (sel2 == 'Hair Wash & Dry') {
+                                    //     var tableRef = document.getElementById('t2').getElementsByTagName('tbody')[0];
+                                    // } else {
+                                    //     var tableRef = document.getElementById('t3').getElementsByTagName('tbody')[0];
+                                    // }
+                                    // var row = tableRef.insertRow(0);      
+                                    // var newCell = row.insertCell(0);
+                                    // var newCell2 = row.insertCell(1);
+                                    
+                                    // var newCell3 = row.insertCell(2);
+                                    // var newCell4 = row.insertCell(3);
+                                    
+                                    // var newCell5 = row.insertCell(2);
 
-                                    var sel1=$("#sel1").val();
-                                    /*
-                                    var sel3=$("#sel3").val();
-                                    var sel4=$("#sel4").val();
-                                    */
-                                    var charge = document.getElementById("charge").value
+                                    // var sel1=$("#sel1").val();
+                                    // /*
+                                    // var sel3=$("#sel3").val();
+                                    // var sel4=$("#sel4").val();
+                                    // */
+                                    // var charge = document.getElementById("charge").value
 
-                                    newCell.innerHTML="ID";
-                                    newCell2.innerHTML="" + sel1;
-                                    /*
-                                    newCell3.innerHTML="" + sel3;
-                                    newCell4.innerHTML="" + sel4;
-                                    */
-                                    newCell5.innerHTML="" + charge;
+                                    // newCell.innerHTML="ID";
+                                    // newCell2.innerHTML="" + sel1;
+                                    // /*
+                                    // newCell3.innerHTML="" + sel3;
+                                    // newCell4.innerHTML="" + sel4;
+                                    // */
+                                    // newCell5.innerHTML="" + charge;
                                     
                                     var element = document.getElementById("server_service");
                                     element.action = "../backend/update_service.php"
                                     element.submit();
+                                    alert("success update")
+                                    location.reload();
                                 }
                             </script>
                             <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>

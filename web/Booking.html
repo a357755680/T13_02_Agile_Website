@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
     <link rel="stylesheet" type="text/css" href="./css/Business_View.css">
 
     <link href="./css/Userprofile.css" rel="stylesheet">
@@ -32,7 +33,7 @@
     </script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <!-- <script>
         $(function () {
             $("#datepicker").datepicker({
                 showOn: "button",
@@ -41,7 +42,7 @@
                 buttonText: "Select date"
             });
         });
-    </script>
+    </script> -->
 </head>
 <body onload="func_query()">
     <span id="user" style="display:none"></span>
@@ -67,13 +68,20 @@
                 <a class="nav-link active" href="UserProfile.html">UserProfile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="HomePage.html">Logout</a>
+                <a class="nav-link"  onclick="logout()" href="#">Logout</a>
             </li>
         </ul>
 
 
     </nav>
 
+    <script type="text/javascript">
+        function logout(){
+            $.get("../backend/login.php", { logout:"out" });
+            alert("Logout Succeed!!!");
+            window.location.href="HomePage.php";
+        }
+    </script>
     <div class="container-fluid">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
@@ -93,7 +101,7 @@
                             <h4>Book your time</h4>
                             <p id='date'></p>
 
-                            <p>Select your perferred date: <input type="text" id="datepicker" placeholder="Today"></p>
+                            <p>Select your perferred date: <input type="date" id="datepicker" name="date"></p>
 
                             <table class="table" id="t1">
                                 <thead>
@@ -117,7 +125,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn"></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s1"></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
@@ -130,7 +138,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn"></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s2" ></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
@@ -143,7 +151,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn"></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s3"></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
@@ -156,7 +164,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" disabled></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s4"></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
@@ -169,7 +177,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" disabled></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s5"></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
@@ -182,7 +190,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn"></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s6"></a></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">7</th>
@@ -195,7 +203,7 @@
                                                 <option>Hair Colour</option>
                                             </select>
                                         </td>
-                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn"></a></td>
+                                        <td><a href="Confirm.html"><input type="submit" value="Book" class="login_btn" id="s7"></a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -206,6 +214,46 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim("utf-8");
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+        var email = getCookie("email");
+        $.post("../backend/queryProfile.php", { "email": unescape(email) },
+            function(data){
+                var Welcome = document.getElementById("name1");
+                Welcome.innerHTML = data.name;
+            }, "json");
+        var datepicker = document.getElementById("datepicker");
+        var date = new Date();
+        var today = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+
+        $.post("../backend/query_available.php", { "date":today},
+            function(data){
+                var s1 = document.getElementById("s1");
+                var s2 = document.getElementById("s2");
+                var s3 = document.getElementById("s3");
+                var s4 = document.getElementById("s4");
+                var s5 = document.getElementById("s5");
+                var s6 = document.getElementById("s6");
+                var s7 = document.getElementById("s7");
+                s1.disabled = data.slot1;
+                s2.disabled = data.slot2;
+                s3.disabled = data.slot3;
+                s4.disabled = data.slot4;
+                s5.disabled = data.slot5;
+                s6.disabled = data.slot6;
+                s7.disabled = data.slot7;
+            }, "json");
+        datepicker.value = today;
+        datepicker.min = today;
+    </script>
 
 </body>
 </html>

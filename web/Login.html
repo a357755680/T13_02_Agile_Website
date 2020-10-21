@@ -1,7 +1,7 @@
 ﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,6 +64,27 @@
                         </div>
                     </form>
                 </div>
+                <script type="text/javascript">
+                    function getCookie(cname){
+                        var name = cname + "=";
+                        var ca = document.cookie.split(';');
+                        for(var i=0; i<ca.length; i++) {
+                            var c = ca[i].trim("utf-8");
+                            if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+                        }
+                        return "";
+                    }
+                    var email = getCookie("email");
+                    var password = getCookie("passowrd");
+                    if(email!=""){
+                        var element1 = document.getElementById("inputEmail");
+                        var element2 = document.getElementById("inputPassword");
+                        var element3 = document.getElementById("remember");
+                        element1.value = unescape(email); 
+                        element2.value = unescape(password);
+                        element3.checked = true;
+                    }
+                </script>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
                         Don't have an account?
