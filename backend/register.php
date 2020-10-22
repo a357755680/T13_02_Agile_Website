@@ -42,7 +42,7 @@
             if ($db->query($query2) === TRUE) {
               echo '<script language="javascript" type="text/javascript">
                   alert("Register succeed");
-                  window.location = "../web/login.html";
+                  window.location = "../web/Login.html";
                 </script>';
               // echo '<script>alert("Register succeed"); window.location = Signin.php</script>';
               // header("Location: Signin.php");
