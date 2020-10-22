@@ -53,10 +53,10 @@
                 // echo '<script>alert("Login Succeed")</script>';
                 // header("Location: ../web/Register.html");
             } else {
-                echo '<script>alert("Incorrect Password!")</script>';
+                echo '<script>alert("Incorrect Password!");window.location = "../web/Login.html";</script>';
             }
         } else {
-            echo '<script>alert("Email not found")</script>';
+            echo '<script>alert("Email not found");window.location = "../web/Login.html";</script>';
         }
         $db->disconnect();
 
