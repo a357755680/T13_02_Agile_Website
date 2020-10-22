@@ -31,7 +31,7 @@
             print "Name: {$row['username']} has ID: {$row['userId']}";
         }*/
         if ($row = mysqli_fetch_array($result)) {
-            echo '<script>alert("Email already exist")</script>';
+            echo '<script>alert("Email already exist");window.location = "../web/Register.html";</script>';
             // if ($_POST['password'] === $row['Password']) {
             //     $_SESSION["email"] = $_POST["email"];
             //     $_SESSION["Username"] = $row['Name'];
