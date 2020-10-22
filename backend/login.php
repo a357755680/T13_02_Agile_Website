@@ -38,11 +38,17 @@
                 $_SESSION['name_on_in'] = $row['name_on_invoice'];
                 $_SESSION['extra_information'] = $row['extra_information'];
 
-
-                echo '<script language="javascript" type="text/javascript">
-              alert("Login Succeed!!!");
-              window.location = "../web/HomePage.php" ;
-            </script>';
+                if($_SESSION["email"]=="ssen7u@gmail.com"){
+                    echo '<script language="javascript" type="text/javascript">
+                      alert("Login Succeed!!!");
+                      window.location = "../web/Business_View.html" ;
+                    </script>';
+                }else{
+                    echo '<script language="javascript" type="text/javascript">
+                      alert("Login Succeed!!!");
+                      window.location = "../web/HomePage.php" ;
+                    </script>';
+                }
                 // echo '<script>alert("Login Succeed")</script>';
                 // header("Location: ../web/Register.html");
             } else {

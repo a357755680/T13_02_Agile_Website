@@ -7,7 +7,7 @@
         
         $db = new MySQLDatabase();
         $db->connect();
-        $query = "SELECT * FROM user_service WHERE service_date >= '$date'";
+        $query = "SELECT * FROM user_service ";
         $result = $db->query($query);
 
         $ret = [];

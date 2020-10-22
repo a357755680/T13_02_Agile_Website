@@ -27,9 +27,9 @@
     <script type="text/javascript">
         var time = UrlParm.parm("time");
         var type = UrlParm.parm("type");
+        if(type=="Hair Wash - Dry") type = "Hair Wash & Dry";
         var date = UrlParm.parm("date");
 
-        document.getElementById("price").value = "sadadad";
 
     </script>
 </head>
@@ -64,13 +64,13 @@
     <div class="d-flex" id="wrapper">
 
     <script type="text/javascript">
-
-
-
         function logout(){
             $.get("../backend/login.php", { logout:"out" });
             alert("Logout Succeed!!!");
             window.location.href="HomePage.php";
+        };
+        function h(){
+            window.location.href="Booking.html";
         };
     </script>
 
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Home Address:</label>
+                                <label class="col-md-4 control-label" for="textinput">Location:</label>
                                 <div class="col-md-4">
                                     <input id="home_address" name="home_address" type="text" placeholder="your address" class="form-control input-md">
                                 </div>
@@ -141,16 +141,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="textinput">Price:</label>
+                                <label class="col-md-4 control-label" for="textinput">Price($):</label>
                                 <div class="col-md-4">
-
-                                    <input id="price" type="text" class="form-control input-md" disabled>
-                                    <script type="text/javascript">
-                                      document.getElementById("price").value = "$";
-                                    </script>
+                                    <input id="price" name="price" type="text" class="form-control input-md" disabled>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-md-4">
                                     <button id="singlebutton" name="singlebutton" class="btn float-right btn" >Confirm</button>
@@ -173,15 +168,15 @@
             return "";
         }
         var email = getCookie("email");
-        $.post("../backend/queryProfile.php", { "email": unescape(email) },
+        $.post("../backend/queryProfile.php", {"email": unescape(email) },
             function(data){
                 var Welcome = document.getElementById("name1");
                 document.getElementById("home_address").value = data.adress;
                 Welcome.innerHTML = data.name;
             }, "json");
-        $.post("../backend/query_service.php", { "sellist2": type },
+        $.post("../backend/query_service.php", {"sellist2": type },
             function(data){
-                document.getElementById("price").value = "$" + data;
+                document.getElementById("price").value = data;
             }, "json");
     </script>
 

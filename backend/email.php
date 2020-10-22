@@ -19,7 +19,7 @@ class SendEmail{
         $this->mail->Password = 'melbspm2020';             // SMTP 密码  部分邮箱是授权码(例如163邮箱)
         $this->mail->SMTPSecure = 'ssl';                    // 允许 TLS 或者ssl协议
         $this->mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
-        $this->mail->setFrom('spm2020unimelb@gmail.com', 'HaircareWebsite');
+        $this->mail->setFrom('spm2020unimelb@gmail.com', 'Hairdressing Centre');
     }
     function sendmail($email,$title,$body){
         try{

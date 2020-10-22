@@ -84,7 +84,12 @@
     </script>
     <script>
         function show_sub(v) {
-            type = v;
+            if (v=="Hair Wash & Dry")
+                type = "Hair Wash - Dry";
+            else{
+                type = v;
+            }
+            
         }
 
     </script>
@@ -285,7 +290,7 @@
         var datepicker = document.getElementById("datepicker");
         var date = new Date();
         var today = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
-
+        var hour = date.getHours();
         $.post("../backend/query_available.php", { "date":today},
             function(data){
                 var s1 = document.getElementById("btn");
@@ -302,12 +307,19 @@
                 s5.disabled = data.slot5;
                 s6.disabled = data.slot6;
                 s7.disabled = data.slot7;
+                if(hour>=9) s1.disabled = true;
+                if(hour>=10) s2.disabled = true;
+                if(hour>=11) s3.disabled = true;
+                if(hour>=13) s4.disabled = true;
+                if(hour>=14) s5.disabled = true;
+                if(hour>=15) s6.disabled = true;
+                if(hour>=16) s7.disabled = true;
             }, "json");
         datepicker.value = today;
         datepicker.min = today;
         function select_date (){
-            var date = datepicker.value;
-            $.post("../backend/query_available.php", { "date":date},
+            var pickdate = datepicker.value;
+            $.post("../backend/query_available.php", { "date":pickdate},
             function(data){
                 var s1 = document.getElementById("btn");
                 var s2 = document.getElementById("btn2");
@@ -323,6 +335,16 @@
                 s5.disabled = data.slot5;
                 s6.disabled = data.slot6;
                 s7.disabled = data.slot7;
+                if(pickdate==today){
+                    hour = date.getHours();
+                    if(hour>=9) s1.disabled = true;
+                    if(hour>=10) s2.disabled = true;
+                    if(hour>=11) s3.disabled = true;
+                    if(hour>=13) s4.disabled = true;
+                    if(hour>=14) s5.disabled = true;
+                    if(hour>=15) s6.disabled = true;
+                    if(hour>=16) s7.disabled = true;
+                }
             }, "json");
         }
     </script>

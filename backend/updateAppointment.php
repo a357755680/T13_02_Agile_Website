@@ -1,6 +1,6 @@
 <?php
     require 'connectMySQL.php';
-
+    require 'email.php';
     session_start();
 
     if (isset($_SESSION["email"])) {
@@ -12,14 +12,19 @@
         $email = $_SESSION["email"];
         $name = $_SESSION["name"];
         $phone = $_SESSION["phone_number"];
-        $service_charge = 300 ;
+        //  = $_POST["price"];
         // $service_id = 0 ;
         $service_type  = $_POST["service_type"];
+        $query = "SELECT * FROM service WHERE type = '$service_type'";
+        $result = $db->query($query);
+        $row = mysqli_fetch_array($result);
+        $service_charge = $row["charger"];
         // $service_date  = $POST["service_date"];
         // $service_timeslot  = $POST["service_timeslot"];
         $message = $_POST["message"];
         $home_address = $_POST["home_address"];
         $service_time = $_POST["service_time"];
+        $service_time2 = $_POST["service_time"];
         $service_date = $_POST["service_date"];
 
 
@@ -64,9 +69,13 @@
                   alert("Book succeed!");
                   window.location = "../web/History.html";
                 </script>';
+              $mail = new SendEmail();
+              $mail->init();
+              $mail->sendmail("ssen7u@gmail.com","$name has completed a new appointment booking","$name completed a new appointment booking, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
+              $mail->sendmail("$email","Congratulations, you have successfully completed an appointment booking.","You completed a new appointment, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
+
               // echo '<script>alert("Register succeed"); window.location = Signin.php</script>';
               // header("Location: Signin.php");
-
               // header("Location: Signin.php");
 
             } else {

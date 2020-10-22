@@ -35,7 +35,8 @@
         var per=[
         {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", date:"10/21/2020", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
         ];
-        
+        var date = new Date();
+        var hour = date.getHours();
         function stime(i){
             if(i==1) return "9:00 - 10:00 AM";
             else if(i==2) return "10:00 - 11:00 AM";
@@ -91,12 +92,15 @@
                 var serviceid = this.id;
                 if(r) {
                     $.post("../backend/cancellBooking.php", { "service_id": serviceid},function(data){
-                        alert("Cancel appointment success!");
+                        alert("Cancel appointment booking successfully!");
                         location.reload();
                     });
                     
                 }
             };
+            var times = h.service_timeslot;
+            if(times>=4) times += 9;
+            else times +=8;
             cancelCell.appendChild(cancelButton);
             row.appendChild(cancelCell);
 
