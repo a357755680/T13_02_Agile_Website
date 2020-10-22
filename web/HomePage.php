@@ -77,7 +77,7 @@
         function logout(){
 
             $.get("../backend/login.php", { logout:"out" });
-            alert("louout success!");
+            alert("Logout success!");
             window.location.href="HomePage.php";
         }
     </script>
