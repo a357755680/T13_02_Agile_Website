@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="textinput">Hairdresser:</label>
                                 <div class="col-md-4">
-                                    Beth
+                                    <input value="Beth" name = "service_date" type="text"  value = "" class="form-control input-md" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -162,7 +162,28 @@
             </form>
         </div>
     </div>
-
+    <script type="text/javascript">
+        function getCookie(cname){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i].trim("utf-8");
+                if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+            }
+            return "";
+        }
+        var email = getCookie("email");
+        $.post("../backend/queryProfile.php", { "email": unescape(email) },
+            function(data){
+                var Welcome = document.getElementById("name1");
+                document.getElementById("home_address").value = data.adress;
+                Welcome.innerHTML = data.name;
+            }, "json");
+        $.post("../backend/query_service.php", { "sellist2": type },
+            function(data){
+                document.getElementById("price").value = "$" + data;
+            }, "json");
+    </script>
 
 
 

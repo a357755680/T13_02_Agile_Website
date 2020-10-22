@@ -7,19 +7,34 @@
         
         $db = new MySQLDatabase();
         $db->connect();
-        $query = "SELECT * FROM user_service WHERE service_date = '$date'";
+        $query = "SELECT * FROM user_service WHERE service_date >= '$date'";
         $result = $db->query($query);
 
-        $slot = array(false,false,false,false,false,false,false);
-
-
+        $ret = [];
+        $count = 0;
         while ($row = mysqli_fetch_array($result)) {
-            $slot[$row["service_timeslot"]-1] = true;
+            $ret[$count++] = array_merge($ret,$row);
+
         }
 
-        $ret = ["slot1" => $slot[0],"slot2" => $slot[1],"slot3" => $slot[2],"slot4" => $slot[3],"slot5" => $slot[4],"slot6" => $slot[5],"slot7" => $slot[6]];
         echo json_encode($ret);
 
     }
-    // echo  'alert("Update succeed!")';
+    if (isset($_POST["email"])){
+        $email = $_POST["email"];
+        $db = new MySQLDatabase();
+        $db->connect();
+        $query = "SELECT * FROM user_service WHERE user_email >= '$email'";
+        $result = $db->query($query);
+
+        $ret = [];
+        $count = 0;
+        while ($row = mysqli_fetch_array($result)) {
+            $ret[$count++] = array_merge($ret,$row);
+
+        }
+        echo json_encode($ret);
+
+    }
+    
 ?>

@@ -54,7 +54,7 @@
 
         else{?>
             <ul class="navbar-nav ml-auto">
-             <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">Welcome, <span id="name1"><?php echo $_SESSION["name"] ?> </span> <span class="sr-only">(current)</span></a>
             </li>
              <li class="nav-item">

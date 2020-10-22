@@ -20,46 +20,65 @@
       var per=[
         {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", date:"10/21/2020", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
       ];
+      $.ajaxSetup({   
+            async : false  
+        });
+      $.post("../backend/query_appointment.php",
+            {
+                date:"2020-10-22"
+            },
+            function(data){
+                per = data;
+                  ;
+            }, "json");
 
       window.onload=function () {
         var tbody=document.getElementById('t1');
         for(var i=0;i<per.length;i++){
-          var trow=getDataRow(per[i]);
-          tbody.appendChild(trow)
+          var trow=getDataRow(per[i],i);
+          tbody.appendChild(trow);
         }
       }
-
-      function getDataRow(h) {
+      function stime(i){
+        if(i==1) return "9:00 - 10:00 AM";
+        else if(i==2) return "10:00 - 11:00 AM";
+        else if(i==3) return "11:00 - 12:00 AM";
+        else if(i==4) return "1:00 - 2:00 PM";
+        else if(i==5) return "2:00 - 3:00 PM";
+        else if(i==6) return "3:00 - 4:00 PM";
+        else return "4:00 - 5:00 PM";
+      }
+      function getDataRow(h,i) {
         var row=document.createElement('tr');
 
         var idCell=document.createElement('td');
 
-        idCell.innerText = h.id;
+        idCell.innerText = i+1;
 
         row.appendChild(idCell);
 
         var hairdresserCell=document.createElement('td');
-        hairdresserCell.innerText = h.hairdresser;
+        hairdresserCell.innerText = "Beth";
         row.appendChild(hairdresserCell);
 
         var usernameCell=document.createElement('td');
-        usernameCell.innerText = h.username;
+        usernameCell.innerText = h.user_name;
         row.appendChild(usernameCell);
 
         var useremailCell=document.createElement('td');
-        useremailCell.innerText = h.useremail;
+        useremailCell.innerText = h.user_email;
         row.appendChild(useremailCell);
 
         var userphoneCell=document.createElement('td');
-        userphoneCell.innerText = h.userphone;
+        userphoneCell.innerText = h.user_phone;
         row.appendChild(userphoneCell);
 
         var dateCell=document.createElement('td');
-        dateCell.innerText = h.date;
+        dateCell.innerText = h.service_date;
         row.appendChild(dateCell);
 
         var timeCell=document.createElement('td');
-        timeCell.innerText = h.time;
+        timeCell.innerText = stime(h.service_timeslot);
         row.appendChild(timeCell);
 
         var serviceCell=document.createElement('td');
@@ -67,11 +86,11 @@
         row.appendChild(serviceCell);
 
         var addressCell=document.createElement('td');
-        addressCell.innerText = h.home_address;
+        addressCell.innerText = h.home_adress;
         row.appendChild(addressCell);
 
         var chargeCell=document.createElement('td');
-        chargeCell.innerText = h.perhour_charge;
+        chargeCell.innerText = h.service_charge;
         row.appendChild(chargeCell);
 
         var messageCell=document.createElement('td');
@@ -116,11 +135,18 @@
             <a class="nav-link" href="Business_View.html">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Register.html">Logout</a>
+            <a class="nav-link"  onclick="logout()" href="#">Logout</a>
           </li>
         </ul>
     </nav>
+    <script type="text/javascript">
+        function logout(){
 
+            $.get("../backend/login.php", { logout:"out" });
+            alert("louout success!");
+            window.location.href="HomePage.php";
+        }
+    </script>
     <div class="container">
       <div class="d-flex justify-content-center h-100">
           <div class="card">
@@ -160,7 +186,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <input type="text" name="messageM" id="messageM" value=""/>
+                        <input type="text" name="messageM" id="messageM" value=""/ disabled>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

@@ -15,7 +15,8 @@
 
     <link href="./css/Userprofile.css" rel="stylesheet">
 
-    <script>$(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             var today = new Date();
             var dd = String(today.getDate()).padStart(2, '0');
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -27,7 +28,82 @@
 
             today = 'Today is ' + day + ', ' + mm + '/' + dd + '/' + yyyy;
             document.getElementById('date').innerHTML = today;
-        })</script>
+        })
+        $.ajaxSetup({   
+            async : false  
+        });
+        var per=[
+        {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", date:"10/21/2020", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
+        ];
+        
+        function stime(i){
+            if(i==1) return "9:00 - 10:00 AM";
+            else if(i==2) return "10:00 - 11:00 AM";
+            else if(i==3) return "11:00 - 12:00 AM";
+            else if(i==4) return "1:00 - 2:00 PM";
+            else if(i==5) return "2:00 - 3:00 PM";
+            else if(i==6) return "3:00 - 4:00 PM";
+            else return "4:00 - 5:00 PM";
+        }
+        function getDataRow(h,i) {
+            var row=document.createElement('tr');
+
+            var idCell=document.createElement('td');
+
+            idCell.innerText = i+1;
+
+            row.appendChild(idCell);
+
+            var hairdresserCell=document.createElement('td');
+            hairdresserCell.innerText = "Beth";
+            row.appendChild(hairdresserCell);
+
+            var dateCell=document.createElement('td');
+            dateCell.innerText = h.service_date;
+            row.appendChild(dateCell);
+
+            var timeCell=document.createElement('td');
+            timeCell.innerText = stime(h.service_timeslot);
+            row.appendChild(timeCell);
+
+            var serviceCell=document.createElement('td');
+            serviceCell.innerText = h.service_type;
+            row.appendChild(serviceCell);
+
+            var addressCell=document.createElement('td');
+            addressCell.innerText = h.home_adress;
+            row.appendChild(addressCell);
+
+            var messageCell=document.createElement('td');
+            messageCell.innerText = h.message;
+            row.appendChild(messageCell);
+
+            var chargeCell=document.createElement('td');
+            chargeCell.innerText = h.service_charge;
+            row.appendChild(chargeCell);
+
+            var cancelCell=document.createElement('td');
+            var cancelButton=document.createElement('button');
+            cancelButton.innerText = "cancel";
+            cancelButton.id = h.service_id;
+            cancelButton.onclick = function () {                   
+                var r = confirm("Are you sure to cancel the booking?");
+                var serviceid = this.id;
+                if(r) {
+                    $.post("../backend/cancellBooking.php", { "service_id": serviceid},function(data){
+                        alert("Cancel appointment success!");
+                        location.reload();
+                    });
+                    
+                }
+            };
+            cancelCell.appendChild(cancelButton);
+            row.appendChild(cancelCell);
+
+            return row;
+        }
+    </script>
+
 
 </head>
 <body onload="func_query()">
@@ -93,6 +169,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Hairdresser</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Time</th>
                                         <th scope="col">Service Type</th>
                                         <th scope="col">Home Address</th>
@@ -101,28 +178,6 @@
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Beth</td>
-                                        <td>9:00 - 10:00 AM</td>
-                                        <td>Haircut</td>
-                                        <td>Home Address</td>
-                                        <td>Message</td>
-                                        <td>$60</td>
-                                        <td><button onclick="myFunction()">Cancel</button></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Beth</td>
-                                        <td>1:00 - 2:00 PM</td>
-                                        <td>Haircut</td>
-                                        <td>Home Address</td>
-                                        <td>Message</td>
-                                        <td>$60</td>
-                                        <td><button onclick="myFunction()">Cancel</button></td>
-                                    </tr>
-                                </tbody>
                             </table>
                         </div>
                         <script>
@@ -158,7 +213,18 @@
                 var Welcome = document.getElementById("name1");
                 Welcome.innerHTML = data.name;
             }, "json");
-        
+        $.post("../backend/query_appointment.php",
+            {
+                "email":unescape(email)
+            },
+            function(data){
+                per = data;
+            }, "json");
+        var tbody=document.getElementById('t1');
+        for(var i=0;i<per.length;i++){
+            var trow=getDataRow(per[i],i);
+            tbody.appendChild(trow);
+        }
     </script>
 </body>
 </html>
