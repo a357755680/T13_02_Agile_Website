@@ -21,9 +21,9 @@ class SendEmail{
         $this->mail->Port = 465;                            // 服务器端口 25 或者465 具体要看邮箱服务器支持
         $this->mail->setFrom('spm2020unimelb@gmail.com', 'Hairdressing Centre');
     }
-    function sendmail($email,$title,$body){
+    function sendmail($email,$name,$title,$body){
         try{
-            $this->mail->addAddress($email, 'Joe');
+            $this->mail->addAddress($email, $name);
             $this->mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
             $this->mail->Subject = $title;
             $this->mail->Body    = $body;

@@ -30,7 +30,7 @@
 
         echo $service_type;
         echo $service_time;
-
+        echo $email;
 
         if ($service_time == "9:00 - 10:00 AM"){
           $service_time = 1;
@@ -66,13 +66,14 @@
             if ($db->query($query2) === TRUE) {
 
               echo '<script language="javascript" type="text/javascript">
-                  alert("Book succeed!");
+                  alert("Book succeed! ");
                   window.location = "../web/History.html";
                 </script>';
               $mail = new SendEmail();
               $mail->init();
-              $mail->sendmail("ssen7u@gmail.com","$name has completed a new appointment booking","$name completed a new appointment booking, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
-              $mail->sendmail("$email","Congratulations, you have successfully completed an appointment booking.","You completed a new appointment, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
+              $mail->sendmail("ssen7u@gmail.com","Beth","$name has completed a new appointment booking","$name completed a new appointment booking, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
+              $mail->init();
+              $mail->sendmail("$email","$name","Congratulations, you have successfully completed an appointment booking.","You completed a new appointment, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time2 <br>message: $message");
 
               // echo '<script>alert("Register succeed"); window.location = Signin.php</script>';
               // header("Location: Signin.php");
