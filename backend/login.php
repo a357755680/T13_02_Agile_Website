@@ -12,7 +12,8 @@
             setcookie("passowrd", $_POST["inputPassword"], time() + 60*60*24, "/");
             // $_COOKIE["email"] = $_POST["inputEmail"];
         } else {
-            setcookie("passowrd", $_POST["inputPassword"], time() - 60*60*24, "/");
+            setcookie("email", $_POST["inputEmail"], time() + 60*60*24, "/");
+            setcookie("passowrd", "", time() - 60*60*24, "/");
             // setcookie("inputEmail", null, -1, "/");
         }
 

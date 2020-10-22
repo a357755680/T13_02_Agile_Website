@@ -32,9 +32,7 @@
         $.ajaxSetup({   
             async : false  
         });
-        var per=[
-        {id:'1', hairdresser:'Beth', username:'Jack', useremail:'77777@unimelb.edu.au', userphone:"66662345", date:"10/21/2020", time:'1:00 - 2:00 PM', service_type:'Haircut', home_address:"Home Address", perhour_charge:'$60', message:'Message Test'}
-        ];
+        var per=[];
         var date = new Date();
         var hour = date.getHours();
         function stime(i){
@@ -223,7 +221,7 @@
             },
             function(data){
                 per = data;
-            }, "json");
+            }, "Json");
         var tbody=document.getElementById('t1');
         for(var i=0;i<per.length;i++){
             var trow=getDataRow(per[i],i);
