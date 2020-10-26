@@ -39,7 +39,7 @@
                 $_SESSION['name_on_in'] = $row['name_on_invoice'];
                 $_SESSION['extra_information'] = $row['extra_information'];
 
-                if($_SESSION["email"]=="ssen7u@gmail.com" || $_SESSION["email"]=="1563451327@qq.com" || $_SESSION["email"]=="yanjunm1@student.unimelb.edu.au"){
+                if($_SESSION["email"]=="ssen7u@gmail.com" || $_SESSION["email"]=="1563451327@qq.com" || $_SESSION["email"]=="eileen.ocallaghan@unimelb.edu.au"){
                     echo '<script language="javascript" type="text/javascript">
                       alert("Login Succeed!!!");
                       window.location = "../web/Business_View.html" ;
