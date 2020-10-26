@@ -41,7 +41,7 @@
           $service_time = "4:00 - 5:00 PM";
         }
         $message = $row["message"];
-        $mail->sendmail("ssen7u@gmail.com","Beth","$name has canceled an appointment booking","$name canceled an appointment booking, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time <br>message: $message");
+        $mail->sendmail("yanjunm1@student.unimelb.edu.au","Beth","$name has canceled an appointment booking","$name canceled an appointment booking, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time <br>message: $message");
         $mail->init();
         $mail->sendmail("$email","$name","You have successfully canceled an appointment booking.","You canceled an appointment, the specific information is as follows:<br>name: $name <br>phone number: $phone <br>Location: $home_address<br>email address: $email <br>date and time: $service_date $service_time <br>message: $message");
 
